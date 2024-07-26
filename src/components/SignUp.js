@@ -1,22 +1,22 @@
-// src/components/Login.js
+// src/components/SignUp.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebaseConfig';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import BackButton from './BackButton';
 
 
-const Login = () => {
+const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleLogin = async (e) => {
+    const handleSignUp = async (e) => {
         e.preventDefault();
         setError('');
         try {
-            await signInWithEmailAndPassword(auth, email, password);
+            await createUserWithEmailAndPassword(auth, email, password);
             navigate('/profile');
         } catch (error) {
             setError(error.message);
@@ -27,8 +27,8 @@ const Login = () => {
         <div className="container mt-5">
             <div className="card">
                 <div className="card-body">
-                    <h2 className="card-title">Login</h2>
-                    <form onSubmit={handleLogin}>
+                    <h2 className="card-title">Sign Up</h2>
+                    <form onSubmit={handleSignUp}>
                         <div className="form-group">
                             <label htmlFor="email">Email</label>
                             <input
@@ -53,7 +53,7 @@ const Login = () => {
                                 required
                             />
                         </div>
-                        <button type="submit" className="btn btn-primary">Login</button>
+                        <button type="submit" className="btn btn-primary">Sign Up</button>
                     </form>
                     {error && <div className="alert alert-danger mt-3">{error}</div>}
                 </div>
@@ -63,4 +63,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;

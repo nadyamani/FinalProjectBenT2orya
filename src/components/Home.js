@@ -1,21 +1,15 @@
 // src/components/Home.js
 import React from 'react';
-import Login from './Login';
-import Register from './Register';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <div className="container mt-5">
-            <h2 className="text-center mb-4">Welcome to Collaborative Note-Taking App</h2>
-            <div className="row">
-                <div className="col-md-6">
-                    <h3 className="text-center">Login</h3>
-                    <Login />
-                </div>
-                <div className="col-md-6">
-                    <h3 className="text-center">Register</h3>
-                    <Register />
-                </div>
+        <div className="container text-center mt-5">
+            <h1 className="display-4">Welcome to the Note-Taking App</h1>
+            <p className="lead">Please login or sign up to continue</p>
+            <div className="mt-4">
+                <Link to="/login" className="btn btn-primary btn-lg mx-2">Login</Link>
+                <Link to="/signup" className="btn btn-secondary btn-lg mx-2">Sign Up</Link>
             </div>
         </div>
     );
