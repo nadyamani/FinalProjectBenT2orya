@@ -1,6 +1,6 @@
 // src/components/Navbar.js
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../firebaseConfig';
 
 const Navbar = () => {
@@ -15,10 +15,14 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-            <span className="navbar-brand">Note-Taking App</span>
-            <div className="ml-auto">
-                <button onClick={handleLogout} className="btn btn-outline-light">Logout</button>
+        <nav className="navbar navbar-expand-lg navbar-dark">
+            <span className="navbar-brand ml-3">Note-Taking Website</span>
+            <div className="navbar-nav ml-auto mr-3">
+                <Link to="/notes" className="nav-item nav-link">All Notes</Link>
+                <Link to="/add-note" className="nav-item nav-link">Add New Note</Link>
+                <button onClick={handleLogout} className="nav-item nav-link btn btn-link"
+                        style={{color: '#F4C2C2'}}>Logout
+                </button>
             </div>
         </nav>
     );

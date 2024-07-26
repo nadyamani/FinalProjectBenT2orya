@@ -1,48 +1,98 @@
+/* src/App.css */
+
+/* General body styling */
 body {
-  background-color: #f8f9fa;
+  background-color: #ffe6f2; /* Light pink background */
+  color: #4a4a4a; /* Darker text for readability */
+  font-family: 'Arial', sans-serif; /* Clean, simple font */
 }
 
-h1, h2, h3 {
-  color: #343a40;
+/* Navbar styling */
+.navbar {
+  background-color: #ffffff !important; /* White background */
+  color: #ff007f !important; /* Fuchsia text */
+  padding: 10px 20px; /* Add some padding for better spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .navbar-brand {
   font-weight: bold;
-  color: #fff !important;
+  color: #ff007f !important; /* Fuchsia color */
 }
 
-.card {
-  margin-top: 20px;
+.navbar-nav .nav-link {
+  color: #ff007f !important; /* Fuchsia color */
+  margin-right: 15px; /* Space between links */
+}
+
+.navbar-nav .btn-link {
+  color: #ff007f !important; /* Fuchsia color for logout link */
   border: none;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  cursor: pointer;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+.navbar-nav .btn-link:hover {
+  color: #cc0066 !important; /* Darker shade on hover */
 }
 
-.btn-secondary {
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-
-.alert {
-  margin-top: 20px;
-}
-
-/* src/App.css */
-.back-button {
-  margin: 10px;
-  padding: 10px 20px;
-  border-radius: 4px;
-  border: none;
-  font-size: 16px;
-  color: #fff;
-  background-color: #6c757d;
+/* Button styling */
+.btn-primary, .btn-danger, .btn-secondary {
+  background-color: #FF007F; /* Button color */
+  border-color: #FF007F; /* Match border to background */
+  color: #ffffff; /* White text */
   transition: background-color 0.3s ease;
 }
 
-.back-button:hover {
-  background-color: #5a6268;
+.btn-primary:hover, .btn-danger:hover, .btn-secondary:hover {
+  background-color: #cc0066; /* Darker shade for hover effect */
+  border-color: #cc0066;
+}
+
+/* Card styling */
+.card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  color: #ff66b2;
+}
+
+.card-subtitle {
+  color: #ff99cc;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Form styling */
+.form-control {
+  border: 1px solid #ff99cc;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #ff66b2;
+}
+
+/* Alert styling */
+.alert-success {
+  background-color: #ffccdd;
+  border-color: #ff99cc;
+  color: #4a4a4a;
+}
+
+.alert-danger {
+  background-color: #ffccdd;
+  border-color: #ff99cc;
+  color: #4a4a4a;
 }
