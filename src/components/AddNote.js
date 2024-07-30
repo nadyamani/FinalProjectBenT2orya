@@ -1,6 +1,6 @@
 // src/components/AddNote.js
 import React, { useState } from 'react';
-import { firestore } from '../firebaseConfig';
+import { firestore, auth } from '../firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 import Navbar from './Navbar';
 import BackButton from './BackButton';
@@ -8,7 +8,7 @@ import BackButton from './BackButton';
 const AddNote = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [category, setCategory] = useState(''); // State for category
+    const [category, setCategory] = useState('');
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
 
@@ -18,12 +18,25 @@ const AddNote = () => {
         setError('');
 
         try {
-            await addDoc(collection(firestore, 'notes'), { title, content, category });
+            const user = auth.currentUser;
+            if (!user) {
+                throw new Error('User is not authenticated');
+            }
+
+            await addDoc(collection(firestore, 'notes'), {
+                title,
+                content,
+                category,
+                ownerId: user.uid, // Set the owner ID
+                shared: false // Default value for shared
+            });
+
             setTitle('');
             setContent('');
             setCategory('');
             setSuccess('Note added successfully!');
         } catch (error) {
+            console.error('Error adding note:', error);
             setError('Error adding note: ' + error.message);
         }
     };

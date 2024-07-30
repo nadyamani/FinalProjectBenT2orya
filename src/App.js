@@ -9,6 +9,7 @@ import Profile from './components/Profile';
 import NotesDashboard from './components/NotesDashboard';
 import AddNote from './components/AddNote';
 import EditNote from './components/EditNote';
+import SharedNotes from './components/SharedNotes'; // Import the SharedNotes component
 import './App.css';
 
 function App() {
@@ -16,11 +17,7 @@ function App() {
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
-            if (user) {
-                setUser(user);
-            } else {
-                setUser(null);
-            }
+            setUser(user);
         });
 
         return () => unsubscribe(); // Cleanup subscription on unmount
@@ -37,6 +34,7 @@ function App() {
                     <Route path="/notes" element={user ? <NotesDashboard /> : <Login />} />
                     <Route path="/add-note" element={user ? <AddNote /> : <Login />} />
                     <Route path="/edit-note/:id" element={user ? <EditNote /> : <Login />} />
+                    <Route path="/shared-notes" element={user ? <SharedNotes /> : <Login />} /> {/* Add this route */}
                 </Routes>
             </div>
         </Router>

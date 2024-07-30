@@ -17,8 +17,8 @@ const EditNote = () => {
     const [success, setSuccess] = useState('');
     const [versions, setVersions] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [selectedVersion, setSelectedVersion] = useState(null);
-    const [showDeleteModal, setShowDeleteModal] = useState(false); // State for delete confirmation modal
 
     useEffect(() => {
         const fetchNote = async () => {
@@ -179,26 +179,29 @@ const EditNote = () => {
             </div>
             <div className="container mt-5">
                 <h3>Version History</h3>
-                <ul>
+                <div className="row">
                     {versions.map((version, index) => (
-                        <li key={index}>
-                            <p>
-                                <strong>Version {index + 1}</strong> - {new Date(version.timestamp.toDate()).toLocaleString()}
-                            </p>
-                            <p><strong>Category:</strong> {version.category}</p>
-                            <p>{version.title}</p>
-                            <p>{version.content}</p>
-                            <button onClick={() => handleRevertClick(version)} className="btn btn-primary mr-2">
-                                Revert to this version
-                            </button>
-                            <button onClick={() => handleDeleteClick(version)} className="btn btn-danger">
-                                Delete
-                            </button>
-                        </li>
+                        <div key={index} className="col-md-4 mb-3">
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">Version {index + 1}</h5>
+                                    <h6 className="card-subtitle mb-2 text-muted">{new Date(version.timestamp.toDate()).toLocaleString()}</h6>
+                                    <p><strong>Category:</strong> {version.category}</p>
+                                    <p>{version.title}</p>
+                                    <p>{version.content}</p>
+                                    <button onClick={() => handleRevertClick(version)} className="btn btn-primary mr-2">
+                                        Revert to this version
+                                    </button>
+                                    <button onClick={() => handleDeleteClick(version)} className="btn btn-danger">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
+                <BackButton />
             </div>
-            <BackButton />
 
             {/* Modal for confirming revert action */}
             <Modal show={showModal} onHide={handleCloseModal}>
