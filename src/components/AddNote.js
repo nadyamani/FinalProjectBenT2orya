@@ -27,7 +27,8 @@ const AddNote = () => {
                 title,
                 content,
                 category,
-                ownerId: user.uid, // Set the owner ID
+                ownerId: user.uid, // Store the user's UID
+                ownerEmail: user.email, // Store the user's email
                 shared: false // Default value for shared
             });
 

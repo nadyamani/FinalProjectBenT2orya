@@ -8,11 +8,11 @@ import { collection, getDocs } from 'firebase/firestore';
 const Profile = () => {
     const [sharedNotes, setSharedNotes] = useState([]);
     const [error, setError] = useState('');
+    const [userEmail, setUserEmail] = useState('');
 
     useEffect(() => {
         const fetchSharedNotes = async () => {
             try {
-                // Log the current user for debugging purposes
                 const user = auth.currentUser;
                 console.log("Current user:", user);
 
@@ -20,6 +20,8 @@ const Profile = () => {
                     setError('User is not authenticated');
                     return;
                 }
+
+                setUserEmail(user.email); // Set the user email for the welcome message
 
                 const sharedNotesCollection = collection(firestore, 'notes');
                 const snapshot = await getDocs(sharedNotesCollection);
@@ -40,7 +42,8 @@ const Profile = () => {
     return (
         <div>
             <Navbar />
-            <div className="container d-flex align-items-center justify-content-center mt-5" style={{ minHeight: '80vh' }}>
+            <div className="container d-flex flex-column align-items-center justify-content-center mt-5" style={{ minHeight: '80vh' }}>
+                <h2 className="mb-4">Welcome, {userEmail}!</h2>
                 <div className="row">
                     {error && <p className="text-danger">{error}</p>}
                     <div className="col-md-4 mb-4">
@@ -83,3 +86,4 @@ const Profile = () => {
 };
 
 export default Profile;
+
