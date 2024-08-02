@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     return (
         <div className="container text-center mt-5">
-            <h1 className="display-4">Welcome to the Note-Taking App</h1>
+            <h1 className="display-4">Welcome to the Note-Taking Website</h1>
             <p className="lead">Please login or sign up to continue</p>
             <div className="mt-4">
                 <Link to="/login" className="btn btn-primary btn-lg mx-2">Login</Link>

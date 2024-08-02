@@ -26,7 +26,7 @@ const NotesDashboard = () => {
             const unsubscribe = onSnapshot(notesCollection, (snapshot) => {
                 const notesList = snapshot.docs
                     .map(doc => ({ id: doc.id, ...doc.data() }))
-                    .filter(note => note.ownerId === user.uid); // Show all notes owned by the current user
+                    .filter(note => note.ownerId === user.uid);
                 setNotes(notesList);
                 setFilteredNotes(notesList);
                 setLoading(false);
