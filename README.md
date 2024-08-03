@@ -1,4 +1,6 @@
-# FinalProjectBenT2orya
+## Note-Taking Website
+Overview
+A simple, collaborative note-taking application that allows multiple users to create, edit, share, and view notes in real-time. This project leverages Firebase for authentication and real-time data updates.
 
 # Getting Started with Create React App
 
