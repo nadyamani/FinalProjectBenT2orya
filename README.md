@@ -1,6 +1,28 @@
-## Note-Taking Website
-Overview
-A simple, collaborative note-taking application that allows multiple users to create, edit, share, and view notes in real-time. This project leverages Firebase for authentication and real-time data updates.
+# **Note-Taking Website**
+
+## **Overview**
+**A simple, collaborative note-taking application that allows multiple users to create, edit, share, and view notes in real-time. This project leverages Firebase for authentication and real-time data updates.**
+
+## **Features**
+- **User Authentication**: Secure user login and registration using Firebase Authentication.
+- **Note Creation and Management**: Users can create, edit, and delete notes.
+- **Real-Time Collaboration**: Notes are updated in real-time using Firebase Firestore.
+- **Version History**: Keep track of changes to notes and revert to previous versions.
+- **Responsive Design**: Mobile-friendly UI with a responsive navbar.
+
+## **Technologies Used**
+- **Frontend**: React.js, Bootstrap
+- **Backend**: Firebase Firestore, Firebase Authentication
+
+  ## **Usage**
+
+1. **Sign Up**: Create a new account using your email and password.
+2. **Login**: Access your account by logging in.
+3. **Create Notes**: Add new notes by navigating to the "Add New Note" section.
+4. **View Notes**: View all your notes and manage them accordingly.
+5. **Share Notes**: Share notes with other users.
+6. **Version History**: View and revert to previous versions of notes.
+7. **Logout**: Securely logout from your account.
 
 # Getting Started with Create React App
 
